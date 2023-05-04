@@ -1,0 +1,15 @@
+.table-container {
+    width: 80%;
+    margin-top: 10px;
+  }
+  
+  .mat-table {
+    width: 100%;
+    
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  

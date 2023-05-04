@@ -1,0 +1,37 @@
+<div class="header">
+  <div class="title-detail">
+    <mat-icon>payment</mat-icon>
+    <h2>Transactions</h2>
+  </div>
+  <mat-divider></mat-divider>
+</div>
+<mat-grid-list cols="2" rowHeight="60px" class="grid-list">
+  <mat-grid-tile style="width: 100%">
+    <!-- <form style="width: 100%; display: flex; justify-content: space-between">
+      <mat-form-field class="example-full-width" style="width: 80%">
+        <input matInput placeholder="Ex. Pizza" value="Sushi" />
+      </mat-form-field>
+      <button style="width: 20%" mat-raised-button color="primary">
+        Search
+      </button>
+    </form> -->
+  </mat-grid-tile>
+  <mat-grid-tile class="btn-container">
+    <button mat-raised-button color="primary" class="create-trn-btn">
+      Create Transaction
+    </button>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<app-table
+  [data]="transactions"
+  [displayedColumns]="displayedColumns"
+  aria-label="Select page"
+  (navigateToPaymentDetails)="onNavigateToPaymentDetails($event)"
+  (pageChanged)="onPageChange($event)"
+  [showPageSizeOptions]="true"
+  [pageSizeOptions]="[2]"
+  [length]="length"
+  [showDetails]="true"
+>
+</app-table>

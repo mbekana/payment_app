@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="table-container mat-elevation-z2">
+    <mat-table [dataSource]="data" matSort>
+      <ng-container
+        *ngFor="let column of displayedColumns"
+        [matColumnDef]="column"
+      >
+        <mat-header-cell *matHeaderCellDef>{{ column }}</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <ng-container
+            *ngIf="
+              column !== 'paidAmount' &&
+                column !== 'paidTotalAmount' &&
+                column !== 'totalAmount';
+              else details
+            "
+          >
+            {{ row[column] }}
+          </ng-container>
+          <ng-template #details>
+            <span [ngStyle]="{ color: 'brown', 'font-family': 'monospace' }">{{
+              row[column] | currency
+            }}</span>
+            <button
+              *ngIf="showDetails && column === 'paidTotalAmount'"
+              mat-icon-button
+              matTooltip="Click to View Details"
+              class="iconbutton"
+              (click)="onNavigateToPaymentDetails(row.id)"
+              color="primary"
+            >
+              <mat-icon style="margin-left: 1em">notes</mat-icon>Details
+            </button>
+          </ng-template>
+        </mat-cell>
+      </ng-container>
+
+      <!-- Define the header row -->
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+      <!-- Define the row -->
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+
+    <mat-paginator
+      [length]="length"
+      [pageSizeOptions]="pageSizeOptions || [2]"
+      aria-label="Select page"
+      (page)="onPageChange($event)"
+      *ngIf="showPagination"
+    ></mat-paginator>
+  </div>
+</div>

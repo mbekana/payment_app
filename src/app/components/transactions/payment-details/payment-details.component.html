@@ -1,0 +1,14 @@
+<div class="header">
+  <div class="title-detail">
+    <mat-icon (click)="goBack()">keyboard_return</mat-icon>
+    <h2>Payments</h2>
+  </div>
+  <mat-divider></mat-divider>
+</div>
+
+<app-table
+  [data]="paymentDetails"
+  [displayedColumns]="displayedColumns"
+  aria-label="Select page"
+  [showDetails]="false"
+></app-table>
