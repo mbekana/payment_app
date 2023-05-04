@@ -58,6 +58,7 @@
 
 .mat-nav-list {
 padding-top: 0 !important;
+
 }
 
 .mat-list-item {
@@ -67,4 +68,16 @@ padding-top: 0 !important;
 
 .mat-nav-list a {
   padding-bottom: 7px;
+}
+
+.aligned-with-icon{
+  position: absolute;
+  margin-top: 3px;
+  width: 100%;
+  padding-left: 10px;
+
+}
+
+.mat-sidenav {
+  width: 200px !important;
 }

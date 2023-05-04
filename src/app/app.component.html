@@ -4,7 +4,6 @@
     class="example-sidenav-container"
     [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
   >
-    <h1>Branch</h1>
     <mat-sidenav
       #sidenav
       [mode]="mobileQuery.matches ? 'over' : 'side'"
@@ -21,11 +20,12 @@
         >
           <span *ngIf="!route?.data?.['is_child']">
             <mat-icon>{{ route?.data?.["icon"] }}</mat-icon>
-            {{ route?.data?.["label"] }}
+            <span class="aligned-with-icon">{{ route?.data?.["label"] }}</span>
           </span>
         </a>
       </mat-nav-list>
     </mat-sidenav>
+
     <mat-sidenav-content>
       <div style="height: 88vh">
         <mat-toolbar color="primary" class="example-toolbar">
